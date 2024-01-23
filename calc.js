@@ -32,4 +32,55 @@ function operate(operator, num1, num2) {
   }
 }
 
-// console.log(divide("3", "3", "2", "2", "1", "1"));
+const numberButtons = document.querySelectorAll(".number");
+const operatorButtons = document.querySelectorAll(".operator");
+const decimalButton = document.querySelector(".decimal");
+const clearButton = document.querySelector(".clear");
+const displayExpression = document.querySelector(".expression-text");
+const displayResult = document.querySelector(".result");
+
+let currentInputNum = "";
+let currentExpression = "";
+let currentResult = "";
+
+function addNumberToDisplay(button) {
+  currentInputNum += button.textContent;
+  currentExpression += `${button.textContent}`;
+  displayExpression.textContent = currentExpression;
+}
+
+function addOperatorToDisplay(button) {
+  if (currentExpression.slice(-1) != " ") {
+    currentExpression += ` ${button.textContent} `;
+    displayExpression.textContent = currentExpression;
+    currentInputNum = "";
+  }
+}
+
+function addDecimalToDisplay() {
+  console.log(currentInputNum);
+  if (!currentInputNum.split("").includes(".")) {
+    currentExpression += ".";
+    currentInputNum += ".";
+    displayExpression.textContent = currentExpression;
+  }
+}
+
+function clearDisplay() {
+  currentExpression = "";
+  currentResult = "";
+  displayExpression.textContent = currentExpression;
+  displayResult.textContent = currentResult;
+}
+
+numberButtons.forEach((button) => {
+  button.addEventListener("click", () => addNumberToDisplay(button));
+});
+
+operatorButtons.forEach((button) => {
+  button.addEventListener("click", () => addOperatorToDisplay(button));
+});
+
+decimalButton.addEventListener("click", () => addDecimalToDisplay());
+
+clearButton.addEventListener("click", clearDisplay);
