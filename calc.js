@@ -16,13 +16,13 @@ function divide(...numbers) {
 
 function operate(operator, num1, num2) {
   if (operator == "+") {
-    add(num1, num2);
+    return add(num1, num2);
   } else if (operator == "-") {
-    substract(num1, num2);
-  } else if (operator == "*") {
-    multiply(num1, num2);
-  } else if (operator == "/") {
-    divide(num1, num2);
+    return subtract(num1, num2);
+  } else if (operator == "×") {
+    return multiply(num1, num2);
+  } else if (operator == "÷") {
+    return divide(num1, num2);
   }
 }
 
