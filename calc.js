@@ -87,12 +87,15 @@ function evaluateSubExpression() {
   updateResultDisplay();
 }
 
-function addOperatorToDisplay(button) {
-  if (currentExpression.slice(-1) != " ") {
-    currentExpression += ` ${button.textContent} `;
-    displayExpression.textContent = currentExpression;
-    currentInputNum = "";
-  }
+function isZeroAllowed() {
+  if (expressionNumber.length === 0) return true;
+
+  const lastItemInExp = expressionNumber.charAt(expressionNumber.length - 1);
+  return expressionNumber.length === 1 ? lastItemInExp !== "0" : true;
+}
+
+function isButtonZero(button) {
+  return button.textContent === "0";
 }
 
 function addDecimalToDisplay() {
