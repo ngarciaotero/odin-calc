@@ -98,13 +98,12 @@ function isButtonZero(button) {
   return button.textContent === "0";
 }
 
-function addDecimalToDisplay() {
-  console.log(currentInputNum);
-  if (!currentInputNum.split("").includes(".")) {
-    currentExpression += ".";
-    currentInputNum += ".";
-    displayExpression.textContent = currentExpression;
-  }
+function updateExpDisplay() {
+  expressionTxtDisplay.textContent = fullExpression;
+}
+
+function updateResultDisplay() {
+  resultDisplay.textContent = currentValue;
 }
 
 function clearDisplay() {
