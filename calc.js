@@ -1,3 +1,5 @@
+// npm install mathjs
+
 function add(...numbers) {
   return [...numbers].reduce((sum, number) => +sum + +number);
 }
@@ -38,10 +40,51 @@ let subExpression = "";
 let fullExpression = " ";
 let currentValue = 0;
 
-function addNumberToDisplay(button) {
-  currentInputNum += button.textContent;
-  currentExpression += `${button.textContent}`;
-  displayExpression.textContent = currentExpression;
+function addNumber(button) {
+  if (isButtonZero(button) && !isZeroAllowed()) return;
+  expressionNumber += button.textContent;
+  subExpression += button.textContent;
+  fullExpression += `${button.textContent}`;
+  updateExpDisplay();
+}
+
+function addOperator(button) {
+  if (/\s[+\-×÷]\s/.test(subExpression)) {
+    evaluateSubExpression();
+  }
+  if (fullExpression.slice(-1) != " ") {
+    subExpression += ` ${button.textContent} `;
+    fullExpression += ` ${button.textContent} `;
+    updateExpDisplay();
+    expressionNumber = "";
+  }
+}
+
+function addDecimal(decimal) {
+  if (!expressionNumber.includes(decimal)) {
+    subExpression += decimal;
+    fullExpression += decimal;
+    expressionNumber += decimal;
+    updateExpDisplay();
+  }
+}
+
+function clearEntireDisplay() {
+  expressionNumber = "";
+  subExpression = "";
+  fullExpression = " ";
+  currentValue = 0;
+  updateExpDisplay();
+  resultDisplay.textContent = "";
+}
+
+function evaluateSubExpression() {
+  const num1 = subExpression.split(" ")[0];
+  const operation = subExpression.split(" ")[1];
+  const num2 = subExpression.split(" ")[2];
+  currentValue = operate(operation, num1, num2);
+  subExpression = `${currentValue}`;
+  updateResultDisplay();
 }
 
 function addOperatorToDisplay(button) {
