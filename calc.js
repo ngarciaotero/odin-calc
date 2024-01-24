@@ -31,6 +31,7 @@ function operate(operator, num1, num2) {
 const numberButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
 const decimalButton = document.querySelector(".decimal");
+const equalButton = document.querySelector(".equal");
 const clearButton = document.querySelector(".clear");
 const expressionTxtDisplay = document.querySelector(".expression-text");
 const resultDisplay = document.querySelector(".result");
@@ -106,11 +107,9 @@ function updateResultDisplay() {
   resultDisplay.textContent = currentValue;
 }
 
-function clearDisplay() {
-  currentExpression = "";
-  currentResult = "";
-  displayExpression.textContent = currentExpression;
-  displayResult.textContent = currentResult;
+function addEqual() {
+  evaluateSubExpression();
+  updateResultDisplay();
 }
 
 numberButtons.forEach((button) => {
@@ -123,4 +122,4 @@ operatorButtons.forEach((button) => {
 
 decimalButton.addEventListener("click", () => addDecimalToDisplay());
 
-clearButton.addEventListener("click", clearDisplay);
+equalButton.addEventListener("click", addEqual);
