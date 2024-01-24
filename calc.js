@@ -1,23 +1,17 @@
 function add(...numbers) {
-  return console.log([...numbers].reduce((sum, number) => +sum + +number));
+  return [...numbers].reduce((sum, number) => +sum + +number);
 }
 
-function substract(...numbers) {
-  return console.log(
-    [...numbers].reduce((result, number) => +result - +number)
-  );
+function subtract(...numbers) {
+  return [...numbers].reduce((result, number) => +result - +number);
 }
 
 function multiply(...numbers) {
-  return console.log(
-    [...numbers].reduce((product, number) => +product * +number)
-  );
+  return [...numbers].reduce((product, number) => +product * +number);
 }
 
 function divide(...numbers) {
-  return console.log(
-    [...numbers].reduce((result, number) => +result / +number)
-  );
+  return [...numbers].reduce((result, number) => +result / +number);
 }
 
 function operate(operator, num1, num2) {
