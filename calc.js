@@ -113,13 +113,17 @@ function addEqual() {
 }
 
 numberButtons.forEach((button) => {
-  button.addEventListener("click", () => addNumberToDisplay(button));
+  button.addEventListener("click", () => addNumber(button));
 });
 
 operatorButtons.forEach((button) => {
-  button.addEventListener("click", () => addOperatorToDisplay(button));
+  button.addEventListener("click", () => addOperator(button));
 });
 
-decimalButton.addEventListener("click", () => addDecimalToDisplay());
+decimalButton.addEventListener("click", () =>
+  addDecimal(decimalButton.textContent)
+);
+
+clearButton.addEventListener("click", clearEntireDisplay);
 
 equalButton.addEventListener("click", addEqual);
