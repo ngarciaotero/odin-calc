@@ -30,12 +30,13 @@ const numberButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
 const decimalButton = document.querySelector(".decimal");
 const clearButton = document.querySelector(".clear");
-const displayExpression = document.querySelector(".expression-text");
-const displayResult = document.querySelector(".result");
+const expressionTxtDisplay = document.querySelector(".expression-text");
+const resultDisplay = document.querySelector(".result");
 
-let currentInputNum = "";
-let currentExpression = "";
-let currentResult = "";
+let expressionNumber = "";
+let subExpression = "";
+let fullExpression = " ";
+let currentValue = 0;
 
 function addNumberToDisplay(button) {
   currentInputNum += button.textContent;
