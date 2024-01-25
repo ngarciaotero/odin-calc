@@ -68,6 +68,11 @@ function addDecimal(decimal) {
   }
 }
 
+function addEqual() {
+  evaluateSubExpression();
+  updateResultDisplay();
+}
+
 function clearEntireDisplay() {
   expressionNumber = "";
   subExpression = "";
@@ -103,11 +108,6 @@ function updateExpDisplay() {
 
 function updateResultDisplay() {
   resultDisplay.textContent = currentValue;
-}
-
-function addEqual() {
-  evaluateSubExpression();
-  updateResultDisplay();
 }
 
 numberButtons.forEach((button) => {
