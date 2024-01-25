@@ -53,7 +53,7 @@ function addNumber(button) {
 }
 
 function addOperator(button) {
-  if (/\s[+\-×÷]\s/.test(subExpression)) {
+  if (isOperatorPresent()) {
     evaluateSubExpression();
   }
   if (fullExpression.slice(-1) != " ") {
@@ -115,6 +115,10 @@ function isButtonZero(button) {
 
 function isLastCharacterADigit() {
   return /[0-9]/.test(subExpression.slice(-1));
+}
+
+function isOperatorPresent() {
+  return /\s[+\-×÷]\s/.test(subExpression);
 }
 
 function updateExpDisplay() {
