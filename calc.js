@@ -39,8 +39,13 @@ let subExpression = "";
 let fullExpression = " ";
 let currentValue = 0;
 
+let isEqualButtonClicked = false;
+
 function addNumber(button) {
+  if (isEqualButtonClicked && isLastCharacterADigit()) return;
+  
   if (isButtonZero(button) && !isZeroAllowed()) return;
+
   expressionNumber += button.textContent;
   subExpression += button.textContent;
   fullExpression += `${button.textContent}`;
@@ -56,10 +61,13 @@ function addOperator(button) {
     fullExpression += ` ${button.textContent} `;
     updateExpDisplay();
     expressionNumber = "";
+    isEqualButtonClicked = false;
   }
 }
 
 function addDecimal(decimal) {
+  if (isEqualButtonClicked && isLastCharacterADigit()) return;
+
   if (!expressionNumber.includes(decimal)) {
     subExpression += decimal;
     fullExpression += decimal;
@@ -71,6 +79,7 @@ function addDecimal(decimal) {
 function addEqual() {
   evaluateSubExpression();
   updateResultDisplay();
+  isEqualButtonClicked = true;
 }
 
 function clearEntireDisplay() {
@@ -102,6 +111,10 @@ function isZeroAllowed() {
 
 function isButtonZero(button) {
   return button.textContent === "0";
+}
+
+function isLastCharacterADigit() {
+  return /[0-9]/.test(subExpression.slice(-1));
 }
 
 function updateExpDisplay() {
