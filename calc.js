@@ -83,12 +83,14 @@ function clearEntireDisplay() {
 }
 
 function evaluateSubExpression() {
-  const num1 = subExpression.split(" ")[0];
-  const operation = subExpression.split(" ")[1];
-  const num2 = subExpression.split(" ")[2];
-  currentValue = operate(operation, num1, num2);
-  subExpression = `${currentValue}`;
-  updateResultDisplay();
+  const subExprParts = subExpression.split(" ");
+
+  if (subExprParts.length === 3 && subExprParts[2] != "") {
+    const [num1, operation, num2] = subExprParts;
+    currentValue = operate(operation, num1, num2);
+    subExpression = `${currentValue}`;
+    updateResultDisplay();
+  }
 }
 
 function isZeroAllowed() {
