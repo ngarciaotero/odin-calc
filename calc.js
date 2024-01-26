@@ -98,6 +98,7 @@ function clearEntireDisplay() {
   currentValue = 0;
   updateExpDisplay();
   resultDisplay.textContent = "";
+  isEqualButtonClicked = false;
 }
 
 function evaluateSubExpression() {
