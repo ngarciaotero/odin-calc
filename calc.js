@@ -77,10 +77,10 @@ function addDecimal(decimal) {
 }
 
 function addEqual() {
-  if (expressionNumber === ".") return;
-  evaluateSubExpression();
-  updateResultDisplay();
-  isEqualButtonClicked = true;
+  if (subExprValid()) {
+    evaluateSubExpression();
+    isEqualButtonClicked = true;
+  }
 }
 
 function clearEntireDisplay() {
@@ -93,13 +93,17 @@ function clearEntireDisplay() {
 }
 
 function evaluateSubExpression() {
-  const subExprParts = subExpression.split(" ");
-  if (subExprParts.length === 3 && isOperandValid(subExprParts[2])) {
-    const [num1, operation, num2] = subExprParts;
+  if (subExprValid()) {
+    const [num1, operation, num2] = subExpression.split(" ");
     currentValue = operate(operation, num1, num2);
     subExpression = `${currentValue}`;
     updateResultDisplay();
   }
+}
+
+function subExprValid() {
+  const subExprParts = subExpression.split(" ");
+  return subExprParts.length === 3 && isOperandValid(subExprParts[2]);
 }
 
 function isZeroAllowed() {
