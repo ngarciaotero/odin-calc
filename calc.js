@@ -120,6 +120,10 @@ function isOperatorPresent() {
   return /\s[+\-×÷]\s/.test(subExpression);
 }
 
+function isOperandValid(operand) {
+  return /^\d+\.?\d*|\d*\.?\d+$/.test(operand);
+}
+
 function updateExpDisplay() {
   expressionTxtDisplay.textContent = fullExpression;
 }
