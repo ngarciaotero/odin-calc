@@ -93,8 +93,7 @@ function clearEntireDisplay() {
 
 function evaluateSubExpression() {
   const subExprParts = subExpression.split(" ");
-
-  if (subExprParts.length === 3 && subExprParts[2] != "") {
+  if (subExprParts.length === 3 && isOperandValid(subExprParts[2])) {
     const [num1, operation, num2] = subExprParts;
     currentValue = operate(operation, num1, num2);
     subExpression = `${currentValue}`;
@@ -113,8 +112,8 @@ function isButtonZero(button) {
   return button.textContent === "0";
 }
 
-function isLastCharacterADigit() {
-  return /[0-9]/.test(subExpression.slice(-1));
+function isLastItemAddedADigit() {
+  return /[0-9]|\./.test(fullExpression.slice(-1));
 }
 
 function isOperatorPresent() {
