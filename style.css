@@ -11,6 +11,8 @@ video {
 .calc-container {
   display: flex;
   flex-direction: column;
+  z-index: 1;
+  color: white;
 }
 
 .keypad {
@@ -25,4 +27,11 @@ video {
 .operator-keys {
   display: flex;
   flex-direction: column;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
