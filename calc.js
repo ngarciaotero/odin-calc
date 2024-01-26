@@ -55,7 +55,8 @@ function addOperator(button) {
   if (isOperatorPresent()) {
     evaluateSubExpression();
   }
-  if (fullExpression.slice(-1) != " ") {
+
+  if (fullExpression.slice(-1) !== " " && expressionNumber !== ".") {
     subExpression += ` ${button.textContent} `;
     fullExpression += ` ${button.textContent} `;
     updateExpDisplay();
