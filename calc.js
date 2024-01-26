@@ -77,6 +77,7 @@ function addDecimal(decimal) {
 }
 
 function addEqual() {
+  if (expressionNumber === ".") return;
   evaluateSubExpression();
   updateResultDisplay();
   isEqualButtonClicked = true;
