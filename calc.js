@@ -42,8 +42,7 @@ let currentValue = 0;
 let isEqualButtonClicked = false;
 
 function addNumber(button) {
-  if (isEqualButtonClicked && isLastCharacterADigit()) return;
-  
+  if (isEqualButtonClicked && isLastItemAddedADigit()) return;
   if (isButtonZero(button) && !isZeroAllowed()) return;
 
   expressionNumber += button.textContent;
@@ -66,7 +65,7 @@ function addOperator(button) {
 }
 
 function addDecimal(decimal) {
-  if (isEqualButtonClicked && isLastCharacterADigit()) return;
+  if (isEqualButtonClicked && isLastItemAddedADigit()) return;
 
   if (!expressionNumber.includes(decimal)) {
     subExpression += decimal;
