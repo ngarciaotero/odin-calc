@@ -1,17 +1,25 @@
 function add(...numbers) {
-  return [...numbers].reduce((sum, number) => +sum + +number);
+  return [...numbers].reduce(
+    (sum, number) => parseFloat(sum) + parseFloat(number)
+  );
 }
 
 function subtract(...numbers) {
-  return [...numbers].reduce((result, number) => +result - +number);
+  return [...numbers].reduce(
+    (result, number) => parseFloat(result) - parseFloat(number)
+  );
 }
 
 function multiply(...numbers) {
-  return [...numbers].reduce((product, number) => +product * +number);
+  return [...numbers].reduce(
+    (product, number) => parseFloat(product) * parseFloat(number)
+  );
 }
 
 function divide(...numbers) {
-  return [...numbers].reduce((result, number) => +result / +number);
+  return [...numbers].reduce(
+    (result, number) => parseFloat(result) / parseFloat(number)
+  );
 }
 
 function operate(operator, num1, num2) {
