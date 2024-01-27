@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "TechDigit";
+  src: url("PocketCalculator-qjd.ttf");
+}
+
 video {
   position: fixed;
   top: 0;
@@ -25,56 +30,10 @@ video {
   height: 100px;
   border: 5px dotted rgba(251, 251, 251, 0.311);
   border-radius: 50px;
-}
-
-#button0 {
-  background: url("img/numbers/zero.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button1 {
-  background: url("img/numbers/one.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button2 {
-  background: url("img/numbers/two.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button3 {
-  background: url("img/numbers/three.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button4 {
-  background: url("img/numbers/four.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button5 {
-  background: url("img/numbers/five.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button6 {
-  background: url("img/numbers/six.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button7 {
-  background: url("img/numbers/seven.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button8 {
-  background: url("img/numbers/eight.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
-}
-
-#button9 {
-  background: url("img/numbers/nine.png") center/contain no-repeat;
-  color: rgba(9, 255, 1, 0);
+  font-family: "TechDigit";
+  color: rgb(241, 245, 9);
+  font-size: 80px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .numeric-keys {
