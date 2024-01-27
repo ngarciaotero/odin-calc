@@ -60,3 +60,21 @@ body {
   align-items: center;
   height: 100vh;
 }
+
+.display-window {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  border-radius: 10px;
+  border: 15px double rgb(237, 184, 154);
+  background-color: rgba(0, 0, 0, 0.749);
+  padding: 30px 50px;
+  font-family: "TechDigit";
+  color: rgb(241, 245, 9);
+  font-size: 50px;
+}
+
+.result,
+.expression-text {
+  margin: 0;
+}
