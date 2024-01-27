@@ -58,7 +58,7 @@ video {
 }
 
 #button-clear {
-  background: url("img/venus.png") center/contain no-repeat;
+  background: url("assets/img/venus.png") center/contain no-repeat;
   border: none;
   color: rgb(217, 255, 0);
   text-shadow: 5px 1px rgba(0, 36, 67, 0.606);
@@ -90,7 +90,6 @@ body {
 
 .result,
 .expression-text {
-  /* align-self: flex-end; */
   margin: 0;
   white-space: nowrap;
 }
