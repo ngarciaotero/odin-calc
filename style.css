@@ -18,17 +18,27 @@ video {
   flex-direction: column;
   z-index: 1;
   color: white;
+  border-radius: 20px;
+  border: 9px double rgb(255, 94, 0);
 }
 
 .keypad {
   display: flex;
+  padding: 30px;
+  border-radius: 10px;
+  border: 7px double rgb(248, 189, 152);
+  background-color: rgba(0, 0, 0, 0.749);
 }
 
-.number {
+.number,
+.operator,
+.equal,
+.decimal,
+.clear {
   cursor: pointer;
   width: 100px;
   height: 100px;
-  border: 5px dotted rgba(251, 251, 251, 0.311);
+  border: 2px solid rgb(245, 104, 57);
   border-radius: 50px;
   font-family: "TechDigit";
   color: rgb(241, 245, 9);
@@ -39,6 +49,7 @@ video {
 .numeric-keys {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .operator-keys {
