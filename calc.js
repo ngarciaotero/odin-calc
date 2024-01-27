@@ -49,24 +49,24 @@ let currentValue = 0;
 
 let isEqualButtonClicked = false;
 
-function addNumber(button) {
+function addNumber(buttonNumber) {
   if (isEqualButtonClicked && isLastItemAddedADigit()) return;
-  if (isButtonZero(button) && !isZeroAllowed()) return;
+  if (isButtonZero(buttonNumber) && !isZeroAllowed()) return;
 
-  expressionNumber += button.textContent;
-  subExpression += button.textContent;
-  fullExpression += `${button.textContent}`;
+  expressionNumber += buttonNumber;
+  subExpression += buttonNumber;
+  fullExpression += `${buttonNumber}`;
   updateExpDisplay();
 }
 
-function addOperator(button) {
+function addOperator(buttonOperator) {
   if (isOperatorPresent()) {
     evaluateSubExpression();
   }
 
   if (fullExpression.slice(-1) !== " " && expressionNumber !== ".") {
-    subExpression += ` ${button.textContent} `;
-    fullExpression += ` ${button.textContent} `;
+    subExpression += ` ${buttonOperator} `;
+    fullExpression += ` ${buttonOperator} `;
     updateExpDisplay();
     expressionNumber = "";
     isEqualButtonClicked = false;
@@ -122,8 +122,8 @@ function isZeroAllowed() {
   return expressionNumber.length === 1 ? lastItemInExp !== "0" : true;
 }
 
-function isButtonZero(button) {
-  return button.textContent === "0";
+function isButtonZero(buttonNumber) {
+  return buttonNumber === "0";
 }
 
 function isLastItemAddedADigit() {
@@ -146,12 +146,35 @@ function updateResultDisplay() {
   resultDisplay.textContent = currentValue;
 }
 
+function handleKeyDown(e) {
+  console.log(e.key);
+  const key = e.key;
+  if (/^[0-9]$/.test(key)) {
+    addNumber(key);
+  } else if (/^[+\-*/]$/.test(key)) {
+    let operator = key;
+    if (key === "*") {
+      operator = "×";
+    } else if (key === "/") {
+      operator = "÷";
+    }
+
+    addOperator(operator);
+  } else if (/^[.]$/.test(key)) {
+    addDecimal(key);
+  } else if (key === "Enter") {
+    addEqual();
+  } else if (key === "Backspace") {
+    clearEntireDisplay();
+  }
+}
+
 numberButtons.forEach((button) => {
-  button.addEventListener("click", () => addNumber(button));
+  button.addEventListener("click", () => addNumber(button.textContent));
 });
 
 operatorButtons.forEach((button) => {
-  button.addEventListener("click", () => addOperator(button));
+  button.addEventListener("click", () => addOperator(button.textContent));
 });
 
 decimalButton.addEventListener("click", () =>
@@ -161,3 +184,5 @@ decimalButton.addEventListener("click", () =>
 clearButton.addEventListener("click", clearEntireDisplay);
 
 equalButton.addEventListener("click", addEqual);
+
+document.addEventListener("keydown", handleKeyDown);
