@@ -112,7 +112,23 @@ function evaluateSubExpression() {
 
 function subExprValid() {
   const subExprParts = subExpression.split(" ");
-  return subExprParts.length === 3 && isOperandValid(subExprParts[2]);
+  return (
+    subExprParts.length === 3 &&
+    !dividingByZero(subExprParts) &&
+    isOperandValid(subExprParts[2])
+  );
+}
+
+function dividingByZero(subExprParts) {
+  if (subExprParts[1] === "÷" && subExprParts[2] === "0") {
+    expressionNumber = `${subExprParts[0]}`;
+    subExpression = subExpression.slice(0, -1);
+    fullExpression = fullExpression.slice(0, -1);
+    updateExpDisplay();
+    alert("Oops! You've stumbled into the mathematical abyss.");
+    return true;
+  }
+  return false;
 }
 
 function isZeroAllowed() {
