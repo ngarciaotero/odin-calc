@@ -46,6 +46,14 @@ video {
   flex-direction: column;
 }
 
+#button-clear {
+  background: url("img/venus.png") center/contain no-repeat;
+  border: none;
+  color: rgb(217, 255, 0);
+  text-shadow: 5px 1px rgba(0, 36, 67, 0.606);
+  font-weight: 900px;
+}
+
 body {
   display: flex;
   justify-content: center;
