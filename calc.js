@@ -163,7 +163,6 @@ function updateResultDisplay() {
 }
 
 function handleKeyDown(e) {
-  console.log(e.key);
   const key = e.key;
   if (/^[0-9]$/.test(key)) {
     addNumber(key);
